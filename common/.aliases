@@ -15,3 +15,5 @@ alias down='cd ~/Downloads'
 alias downloads='cd ~/Downloads'
 alias msrc='cd ~/src'
 alias mysrc='cd ~/src'
+# http://superuser.com/a/434168/634628
+alias listall=‘find . -type d | ls -lARG’
