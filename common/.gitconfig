@@ -1,0 +1,5 @@
+[user]
+	name = Dale Smith
+	email = dtsmith@mindspring.com
+[credential]
+	helper = osxkeychain
