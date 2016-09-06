@@ -1,4 +1,9 @@
 mcd () {
+ if [ “$1” == “” ]
+ then
+   echo “Refusing to make directory with blank name”
+   return
+ fi
  mkdir "$1" && cd "$1"
 }
 
