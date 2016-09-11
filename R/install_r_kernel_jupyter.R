@@ -3,6 +3,8 @@
 #
 # Note: You must run this script by starting R with 'sudo R' from the Terminal.
 #
+# See https://irkernel.github.io/installation/
+#
 
 install.packages(c('repr', 'IRdisplay', 'evaluate', 'crayon', 'pbdZMQ', 'devtools', 'uuid', 'digest'))
 devtools::install_github('IRkernel/IRkernel')
