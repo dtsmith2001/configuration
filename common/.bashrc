@@ -1,20 +1,20 @@
 # functions
-if [ -f .bash_functions ]
+if [ -f ${HOME}/.bash_functions ]
 then
-    source .bash_functions
+    source ${HOME}/.bash_functions
 fi
 
 # aliases
-if [ -f .aliases ]
+if [ -f ${HOME}/.aliases ]
 then
-    source .aliases
+    source ${HOME}/.aliases
 fi
 
 # added by Anaconda3 4.1.1 installer
 export PATH="/Applications/anaconda/bin:${PATH}"
 
 # prompt
-if [ -f .my_prompt ]
+if [ -f ${HOME}/.my_prompt ]
 then
-    source .my_prompt
+    source ${HOME}/.my_prompt
 fi
