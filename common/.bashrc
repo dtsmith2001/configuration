@@ -18,3 +18,6 @@ if [ -f ${HOME}/.my_prompt ]
 then
     source ${HOME}/.my_prompt
 fi
+
+# make sure the current directory is in the path to avoid annoyances
+export PATH=.:${PATH}
