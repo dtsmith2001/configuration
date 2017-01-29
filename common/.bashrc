@@ -19,5 +19,7 @@ then
     source ${HOME}/.my_prompt
 fi
 
+export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
+
 # make sure the current directory is in the path to avoid annoyances
 export PATH=.:${PATH}
