@@ -11,7 +11,7 @@ then
 fi
 
 # added by Anaconda3 4.1.1 installer
-export PATH="/Applications/anaconda/bin:${PATH}"
+export PATH=/anaconda/bin:${PATH}
 
 # prompt
 if [ -f ${HOME}/.my_prompt ]
@@ -22,4 +22,4 @@ fi
 export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
 
 # make sure the current directory is in the path to avoid annoyances
-export PATH=.:${PATH}
+export PATH=.:${PATH}:/Library/PostgreSQL/9.5/bin
