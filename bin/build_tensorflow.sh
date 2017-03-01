@@ -5,7 +5,7 @@
 # See https://www.tensorflow.org/install/install_mac
 #
 
-function check_python(parameter) {
+function check_python() {
   py_version=$(python --version 2>&1 | cut -f2 -d' ' | cut -f1 -d'.')
   if [ ${py_version} -gt 2 ]
   then
@@ -15,7 +15,7 @@ function check_python(parameter) {
   fi
 }
 
-function check_for_conda(parameter) {
+function check_for_conda() {
   conda --version > /dev/null 2>&1
   if [ $? -ne 0 ]
   then
@@ -25,7 +25,7 @@ function check_for_conda(parameter) {
   return 1
 }
 
-function set_up_env(parameter) {
+function set_up_env() {
   conda config --add channels conda-forge
   conda install tensorflow
   conda create -n tensorflow --clone root
@@ -38,12 +38,12 @@ function set_up_env(parameter) {
   fi
 }
 
-function clone_tensorflow(parameter) {
+function clone_tensorflow() {
   git clone https://github.com/tensorflow/tensorflow.git
 }
 
-if [ check_python() ]
+if [ check_python && check_for_conda ]
 then
-  set_up_env()
-  clone_tensorflow()
+  set_up_env
+  clone_tensorflow
 fi

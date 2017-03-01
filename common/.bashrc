@@ -25,7 +25,7 @@ export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
 export PATH=.:${PATH}:/Library/PostgreSQL/9.5/bin
 
 # bazel command-line completions
-if [ exists("/usr/local/lib/bazel/bin/bazel-complete.bash") ]
+if [ exists "/usr/local/lib/bazel/bin/bazel-complete.bash" ]
 then
   source /usr/local/lib/bazel/bin/bazel-complete.bash
 fi
