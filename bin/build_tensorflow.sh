@@ -8,7 +8,7 @@
 which python
 conda create -n tensorflow --clone root
 source activate tensorflow
-pip install tensorflow # assumption here is we have Python 3.x installed
+pip install tensorflow # assumption here is we have Python 3.x installed - no need for pip3
 python ../python/test_tensorflow.py
 if [ $? -eq 0 ]
 then
