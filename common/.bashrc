@@ -18,5 +18,13 @@ then
     source ${HOME}/.my_prompt
 fi
 
-# make sure the current directory is in the path to avoid annoyances
-export PATH=.:${PATH}
+if [ -f ${HOME}/.private_aliases ]
+then
+    source ${HOME}/.private_aliases
+fi
+
+# https://confluence.atlassian.com/bitbucketserver/permanently-authenticating-with-git-repositories-776639846.html
+# git config --global credential.helper osxkeychain
+
+# mpicc execution - petsc install via brew recommends
+# sudo port select --set mpi mpich-mp-fortran
