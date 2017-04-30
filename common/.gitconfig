@@ -9,3 +9,5 @@
 	required = true
 [push]
 	default = simple
+[core]
+	askpass = /Users/driver.dan12/bin/git-password

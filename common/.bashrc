@@ -10,8 +10,7 @@ then
     source ${HOME}/.aliases
 fi
 
-# added by Anaconda3 4.1.1 installer
-export PATH="/Applications/anaconda/bin:${PATH}"
+export PATH="/anaconda/bin:${PATH}"
 
 # prompt
 if [ -f ${HOME}/.my_prompt ]
