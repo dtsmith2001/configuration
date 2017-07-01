@@ -2,7 +2,7 @@
 
 # make aliases to dotfiles in home folder
 
-cd ~
+cd ${HOME}
 
 if [ ! -f .aliases ]
 then

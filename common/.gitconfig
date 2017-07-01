@@ -9,3 +9,5 @@
 	required = true
 [push]
 	default = simple
+[alias]
+	showtrackedignored = ls-files -i --exclude-standard

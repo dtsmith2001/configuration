@@ -1,0 +1,85 @@
+#!/usr/bin/env python3
+
+import sys
+import json
+import boto3
+from botocore.exceptions import ClientError
+
+
+class Instances(object):
+    class Instance(object):
+        def __init__(self, instance_id: str, instance_state: str):
+            self._instance_id = instance_id
+            self._instance_state = instance_state
+
+        @property
+        def instance_id(self) -> str:
+            return self._instance_id
+
+        @property
+        def instance_state(self) -> str:
+            return self._instance_state
+
+        @property
+        def running(self) -> bool:
+            if self._instance_state == 'running':
+                return True
+            return False
+
+    def __init__(self):
+        self._instances = []
+
+    @property
+    def instances(self):
+        return self._instances
+
+    def instance(self, value: dict):
+        inst = Instance(instance_id=value['InstanceId'],
+                        instance_state=value['State'])
+        self._instances.append(inst)
+
+    instance = property(None, instance)
+
+    def shutdown(self):
+        to_shutdown = []
+        for instance in self.instances:
+            if instance.running:
+                to_shutdown(instance.instance_id)
+                print('Shutdown running instance {}'.format(instance.instance_id))
+        if len(to_shutdown) > 0:
+            ec2 = boto3.client('ec2')
+            try:
+                print('Stopping instances...')
+                ec2.stop_instances(InstanceId=to_shutdown, DryRun=True)
+                print('Sent request')
+            except ClientError as ce:
+                print(ce)
+        else:
+            print('No running instances to shut down.')
+
+    @property
+    def active(self) -> bool:
+        for inst in self.instances:
+            if inst.running:
+                return True
+        return False
+
+def main():
+    inp = json.loads('\n'.join(sys.stdin.readlines()))
+    if len(inp['Reservations']) == 0:
+        print('You do not have any instances to check - all are terminated.')
+    else:
+        for reservations in inp['Reservations']:
+            inst = Instances()
+            for instances in reservations['Instances']:
+                instance_state = instances['State']['Name']
+                instance_id = instances['InstanceId']
+                inst.instance({'InstanceId': instance_id,
+                               'State': instance_state})
+            if inst.active:
+                inst.shutdown()
+            else:
+                print('No running instances to shut down.')
+
+if __name__ == '__main__':
+    main()
