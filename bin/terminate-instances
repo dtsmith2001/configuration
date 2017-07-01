@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
 
+import argparse
 import boto3
 from botocore.exceptions import ClientError
 
 
-def main():
+def main(args):
     ec2 = boto3.client('ec2')
     results = ec2.describe_instances()
     running_instances = []
@@ -12,7 +13,11 @@ def main():
         for instance in reservation['Instances']:
             if instance['State']['Name'].upper() == 'RUNNING':
                 running_instances.append(instance['InstanceId'])
-    ec2.stop_instances(InstanceIds=running_instances, DryRun=True)
+    ec2.stop_instances(InstanceIds=running_instances, DryRun=args.dry_run)
 
 if __name__ == '__main__':
-    main()
+    parser = argparse.ArgumentParser()
+    optional = parser.add_argument_group('Required')
+    optional.add_argument('--dry-run', action='store_true', help='Do not terminate, invoke a dry run first.')
+    args = parser.parse_args()
+    main(args)
