@@ -1,7 +1,10 @@
+depends <- c("Depends", "Imports", "LinkingTo")
+
+install.packages(c("ctv", "devtools"), dependencies=depends, quiet=TRUE)
+
 require(ctv)
 require(devtools)
 
-depends <- c("Depends", "Imports", "LinkingTo")
 my_views <- c("TimeSeries", "MachineLearning", "Robust", "Optimization", "Multivariate", "HighPerformanceComputing",
               "Finance", "NumericalMathematics", "Distributions", "DifferentialEquations", "Econometrics", "Robust",
               "ReproducibleResearch", "NaturalLanguageProcessing", "Multivariate")
