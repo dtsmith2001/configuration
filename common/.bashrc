@@ -10,7 +10,7 @@ then
     source ${HOME}/.aliases
 fi
 
-export PATH="/anaconda/bin:${PATH}"
+export PATH="/Application/anaconda/bin:${PATH}"
 
 # prompt
 if [ -f ${HOME}/.my_prompt ]
