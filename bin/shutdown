@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+instance_id=$(aws ec2 describe-instances | grep -i InstanceId | cut -f2 -d':' | tr -d '"' | tr -d ',')
+~/src/autovpn/autovpn -T -r us-east-1 -z ${instance_id}

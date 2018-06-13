@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+cd ~/src/autovpn
+if [ -f autovpn.log ]
+then
+  rm -f autovpn.log
+fi
+./autovpn -C -r us-east-1 -k id_rsa_github -i t2.micro 2>&1 | tee autovpn.log
+if [ $? -ne 0 ]
+then
+  echo -n "VPN not started, shutting down any instances that may be started..."
+  ~/bin/terminate-instances
+  echo "terminated all instances"
+  exit 1
+fi

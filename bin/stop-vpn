@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+cd ~/src/autovpn
+# now get the ip address from a string such as 'Connection to 34.229.177.167 closed.'
+ip_line=$(grep "Connection to " autovpn.log | cut -f3 -d' ')
+# get the instance-id from the ip address
+instance_id=$(aws ec2 describe-instances --filter Name=ip-address,Values=34.229.177.167 | grep InstanceId | ~/bin/trim | cut -f2 -d' ' | sed -e 's/\"//g' -e 's/,//g')
+# aws ec2 describe-instances --filter Name=ip-address,Values=IP_1,..IP_N
+autovpn -T -r us-west-1 -z ${instance_id}
+if [ $? -ne 0 ]
+then
+  echo -n "Can't terminate instance, shutting down..."
+  ~/bin/terminate-instances
+  echo "terminated"
+fi
