@@ -23,8 +23,10 @@ then
     source ${HOME}/.private_aliases
 fi
 
-# https://confluence.atlassian.com/bitbucketserver/permanently-authenticating-with-git-repositories-776639846.html
-# git config --global credential.helper osxkeychain
+if [ -f ${HOME}/.additional_startup ]
+then
+    source ${HOME}/.additional_startup
+fi
 
 # mpicc execution - petsc install via brew recommends
 # sudo port select --set mpi mpich-mp-fortran
