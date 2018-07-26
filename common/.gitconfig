@@ -1,5 +1,6 @@
 [user]
 	name = Dale Smith
+	email = dtsmith@mindspring.com
 [filter "lfs"]
 	clean = git-lfs clean %f
 	smudge = git-lfs smudge %f
