@@ -4,10 +4,16 @@ then
     source ${HOME}/.bash_functions
 fi
 
-# aliases
+# aliases - note we source ~/.bash_aliases as well, so that may overwrite
+# your aliases
 if [ -f ${HOME}/.aliases ]
 then
     source ${HOME}/.aliases
+fi
+
+if [ -f ${HOME}/.bash_aliases ]
+then
+    source ${HOME}/.bash_aliases
 fi
 
 # prompt
@@ -17,6 +23,8 @@ then
 fi
 
 # private aliases are not in github
+# you can include aliases here that are not for public
+# disclosure
 if [ -f ${HOME}/.private_aliases ]
 then
     source ${HOME}/.private_aliases
