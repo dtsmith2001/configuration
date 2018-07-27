@@ -26,3 +26,7 @@ exists() {
 function tree {
     find ${1:-.} -print | sed -e 's;[^/]*/;|____;g;s;____|; |;g'
 }
+
+function gcode {
+    grep --ignore-case --no-messages --line-number --context=3 --recursive --binary-files=without-match "$1" *.{c,h}
+}
