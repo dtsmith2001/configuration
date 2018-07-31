@@ -1,7 +1,0 @@
-[default]
-region=us-west-2
-output=json
-
-[profile work]
-region=us-east-1
-output=json
