@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# make aliases to dotfiles in home folder
+# make symlinks to all files
 
 cd ${HOME}
 
@@ -27,4 +27,8 @@ fi
 if [ ! -f .my_prompt ]
 then
     ln -s ${HOME}/src/configuration/common/.my_prompt .my_prompt
+fi
+if [ ! -f .gdbinit ]
+then
+    ln -s ${HOME}/src/configuration/common/.gdbinit .gdbinit
 fi

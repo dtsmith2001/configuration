@@ -22,6 +22,6 @@ def main(args):
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     optional = parser.add_argument_group('Required')
-    optional.add_argument('--dry-run', action='store_true', help='Do not terminate, invoke a dry run first.')
+    optional.add_argument('--dry-run', action='store_true', help='Do not stop instances, invoke a dry run first.')
     args = parser.parse_args()
     main(args)
