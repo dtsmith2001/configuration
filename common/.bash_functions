@@ -28,5 +28,10 @@ function tree {
 }
 
 function gcode {
-    grep --ignore-case --no-messages --line-number --context=3 --recursive --binary-files=without-match "$1" *.{c,h}
+    if [ "$1" == "" ]
+    then
+        echo "Must specify something to find in code."
+        exit 1
+    fi
+    grep --ignore-case --no-messages --line-number --context=3 --recursive --binary-files=without-match "$1" *.{c,cpp,h,hpp}
 }
