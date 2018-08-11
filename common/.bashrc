@@ -4,16 +4,16 @@ then
     source ${HOME}/.bash_functions
 fi
 
-# aliases - note we source ~/.bash_aliases as well, so that may overwrite
-# your aliases
-if [ -f ${HOME}/.aliases ]
-then
-    source ${HOME}/.aliases
-fi
-
 if [ -f ${HOME}/.bash_aliases ]
 then
     source ${HOME}/.bash_aliases
+fi
+
+# aliases - note we source ~/.bash_aliases as well,
+# so this step may overwrite your aliases
+if [ -f ${HOME}/.aliases ]
+then
+    source ${HOME}/.aliases
 fi
 
 # prompt
