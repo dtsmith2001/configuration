@@ -32,3 +32,7 @@ if [ ! -f .gdbinit ]
 then
     ln -s ${HOME}/src/configuration/common/.gdbinit .gdbinit
 fi
+if [ ! -f .additional_startup ]
+then
+    ln -s ${HOME}/src/configuration/common/.additional_startup
+fi
