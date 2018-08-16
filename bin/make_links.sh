@@ -34,5 +34,5 @@ then
 fi
 if [ ! -f .additional_startup ]
 then
-    ln -s ${HOME}/src/configuration/common/.additional_startup
+    ln -s ${HOME}/src/configuration/common/.additional_startup .additional_startup
 fi
