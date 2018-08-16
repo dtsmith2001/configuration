@@ -1,0 +1,60 @@
+{
+    "SpotInstanceRequests": [
+        {
+            "CreateTime": "2018-08-10T15:41:45.000Z",
+            "InstanceId": "i-0a8a41306342d775b",
+            "LaunchSpecification": {
+                "SecurityGroups": [
+                    {
+                        "GroupName": "default"
+                    }
+                ],
+                "BlockDeviceMappings": [
+                    {
+                        "DeviceName": "/dev/sda1",
+                        "Ebs": {
+                            "DeleteOnTermination": true,
+                            "SnapshotId": "snap-03c91645beefa0b0d",
+                            "VolumeSize": 8,
+                            "VolumeType": "gp2"
+                        }
+                    }
+                ],
+                "ImageId": "ami-66506c1c",
+                "InstanceType": "p2.xlarge",
+                "KeyName": "Desktop id_rsa_github",
+                "NetworkInterfaces": [
+                    {
+                        "DeleteOnTermination": true,
+                        "DeviceIndex": 0,
+                        "SubnetId": "subnet-30ba1e0c"
+                    }
+                ],
+                "Placement": {
+                    "AvailabilityZone": "us-east-1e",
+                    "Tenancy": "default"
+                },
+                "Monitoring": {
+                    "Enabled": false
+                }
+            },
+            "LaunchedAvailabilityZone": "us-east-1e",
+            "ProductDescription": "Linux/UNIX",
+            "SpotInstanceRequestId": "sir-59484vyk",
+            "SpotPrice": "0.750000",
+            "State": "active",
+            "Status": {
+                "Code": "fulfilled",
+                "Message": "Your spot request is fulfilled.",
+                "UpdateTime": "2018-08-10T15:54:04.000Z"
+            },
+            "Tags": [
+                {
+                    "Key": "aws:ec2spot:fleet-request-id",
+                    "Value": "sfr-35b1725e-e85d-4c32-a239-ba8a6978623b"
+                }
+            ],
+            "Type": "one-time"
+        }
+    ]
+}
