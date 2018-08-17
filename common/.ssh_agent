@@ -1,0 +1,11 @@
+# .ssh_agent
+
+SSH_ENV="${HOME}/.ssh/environment"
+
+function start_agent {
+   /usr/bin/ssh-agent -s | sed 's/^echo/#echo/' > "${SSH_ENV}"
+   chmod 600 "${SSH_ENV}"
+   . "${SSH_ENV}" > /dev/null
+   /usr/bin/ssh-add ~/.ssh/id_rsa_vallum_common > /dev/null 2>&1
+}
+

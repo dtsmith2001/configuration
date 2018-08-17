@@ -1,3 +1,16 @@
+parse_git_branch() {
+     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
+}
+
+function get_compiler {
+    if [ "$1" == "" ]
+    then
+	echo "Must pass a shared object (.so)"
+	return
+    fi
+    strings -a "$1" | grep "GCC"
+}
+
 mcd () {
  if [ “$1” == “” ]
  then
