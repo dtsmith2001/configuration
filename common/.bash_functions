@@ -1,4 +1,13 @@
-parse_git_branch() {
+function connect_ubuntu {
+  if [ "$1" == "" ]
+  then
+    echo "Must pass the hostname."
+    return
+  fi
+  ssh -i ~/.ssh/id_rsa_vallum_common ubuntu@${1}
+}
+
+function parse_git_branch {
      git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
 }
 

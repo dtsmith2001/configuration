@@ -13,3 +13,9 @@ set input-radix 0x10
 #set width 0
 
 set pagination off
+
+set print demangle on
+
+set pagination off
+
+source ~/.stl-views.gdb
