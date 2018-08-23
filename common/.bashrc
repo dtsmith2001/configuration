@@ -35,3 +35,5 @@ if [ -f ${HOME}/.additional_startup ]
 then
     source ${HOME}/.additional_startup
 fi
+
+export PATH=/Users/driver.dan12/anaconda3/bin:${PATH}
