@@ -7,6 +7,15 @@ function connect_ubuntu {
   ssh -i ~/.ssh/id_rsa_vallum_common ubuntu@${1}
 }
 
+function sftp_ubuntu {
+    if [ "$1" == "" ]
+    then
+        echo "Must pass the hostname."
+        return
+    fi
+    sftp -i ~/.ssh/id_rsa_vallum_common ubuntu@${1}
+}
+
 function parse_git_branch {
      git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
 }
@@ -14,8 +23,8 @@ function parse_git_branch {
 function get_compiler {
     if [ "$1" == "" ]
     then
-	echo "Must pass a shared object (.so)"
-	return
+	   echo "Must pass a shared object (.so)"
+	      return
     fi
     strings -a "$1" | grep "GCC"
 }
