@@ -2,41 +2,43 @@
 
 # make symlinks to all files
 
+source_files=${HOME}/src/configuration/common
+
 cd ${HOME}
 
 if [ ! -f .aliases ]
 then
-    ln -s ${HOME}/src/Vallum_DevOps/employees/dtsmith/.aliases .aliases
+    ln -s ${source_files}/.aliases .aliases
 fi
 if [ ! -f .bash_functions ]
 then
-    ln -s ${HOME}/src/Vallum_DevOps/employees/dtsmith/.bash_functions .bash_functions
+    ln -s ${source_files}/.bash_functions .bash_functions
 fi
 if [ ! -f .bash_profile ]
 then
-    ln -s ${HOME}/src/Vallum_DevOps/employees/dtsmith/.bash_profile .bash_profile
+    ln -s ${source_files{/.bash_profile .bash_profile
 fi
 if [ ! -f .bashrc ]
 then
-    ln -s ${HOME}/src/Vallum_DevOps/employees/dtsmith/.bashrc .bashrc
+    ln -s ${source_files}/.bashrc .bashrc
 fi
 if [ ! -f .gitconfig ]
 then
-    ln -s ${HOME}/src/Vallum_DevOps/employees/dtsmith/.gitconfig .gitconfig
+    ln -s ${source_files}/.gitconfig .gitconfig
 fi
 if [ ! -f .my_prompt ]
 then
-    ln -s ${HOME}/src/Vallum_DevOps/employees/dtsmith/.my_prompt .my_prompt
+    ln -s ${source_files}/.my_prompt .my_prompt
 fi
 if [ ! -f .gdbinit ]
 then
-    ln -s ${HOME}/src/Vallum_DevOps/employees/dtsmith/.gdbinit .gdbinit
+    ln -s ${source_files}/.gdbinit .gdbinit
 fi
 if [ ! -f .additional_startup ]
 then
-    ln -s ${HOME}/src/Vallum_DevOps/employees/dtsmith/.additional_startup .additional_startup
+    ln -s ${source_files}/.additional_startup .additional_startup
 fi
-if [ ! -f .ssh_agent ]
+if [ ! -f ${HOME}/.config/systemd/user/ssh-agent.service ]
 then
-    ln -s ${HOME}/src/Vallum_DevOps/employees/dtsmith/.ssh_agent .ssh_agent
+    ln -s ${HOME}/.config/systemd/user/ssh-agent.service ${source_fles}/ssh-agent.service
 fi
