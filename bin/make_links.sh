@@ -2,7 +2,7 @@
 
 # make symlinks to all files
 
-source_files=${HOME}/src/configuration/common
+source_files="${HOME}/src/configuration/common"
 
 cd ${HOME}
 
