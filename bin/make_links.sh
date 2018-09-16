@@ -48,7 +48,7 @@ else
     then
         if [ ! -f ${HOME}/.config/systemd/user/ssh-agent.service ]
         then
-            ln -s ${HOME}/.config/systemd/user/ssh-agent.service ${source_fles}/ssh-agent.service
+            ln -s ${HOME}/.config/systemd/user/ssh-agent.service ${source_files}/ssh-agent.service
         fi
     fi
 fi
