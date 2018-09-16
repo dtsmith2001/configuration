@@ -16,7 +16,7 @@ then
 fi
 if [ ! -f .bash_profile ]
 then
-    ln -s ${source_files{/.bash_profile .bash_profile
+    ln -s ${source_files}/.bash_profile .bash_profile
 fi
 if [ ! -f .bashrc ]
 then
@@ -38,7 +38,12 @@ if [ ! -f .additional_startup ]
 then
     ln -s ${source_files}/.additional_startup .additional_startup
 fi
-if [ ! -f ${HOME}/.config/systemd/user/ssh-agent.service ]
+
+# below is for Raspberry PI 3B+ (armv7l) or Ubuntu (x86_64)
+if [ $(uname -m) == "armv7l" ] || [ $(uname -m) == "x86_64" ]
 then
-    ln -s ${HOME}/.config/systemd/user/ssh-agent.service ${source_fles}/ssh-agent.service
+    if [ ! -f ${HOME}/.config/systemd/user/ssh-agent.service ]
+    then
+        ln -s ${HOME}/.config/systemd/user/ssh-agent.service ${source_fles}/ssh-agent.service
+    fi
 fi
