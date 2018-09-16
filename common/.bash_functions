@@ -54,7 +54,7 @@ exists() {
 #| | |____Carbon.json
 # alternate: alias tree='find . -print | sed -e "s;[^/]*/;|____;g;s;____|; |;g"'
 # use$ tree ; tree . ; tree [some-folder-path]
-function tree {
+function view_tree {
     find ${1:-.} -print | sed -e 's;[^/]*/;|____;g;s;____|; |;g'
 }
 
