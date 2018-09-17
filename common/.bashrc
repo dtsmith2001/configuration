@@ -37,3 +37,5 @@ then
 fi
 
 export PATH=/Users/driver.dan12/anaconda3/bin:${PATH}
+
+fortune
