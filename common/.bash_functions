@@ -2,18 +2,18 @@ function connect_ubuntu {
   if [ "$1" == "" ]
   then
     echo "Must pass the hostname."
-    return
+  else
+    ssh -i ~/.ssh/id_rsa_vallum_common ubuntu@${1}
   fi
-  ssh -i ~/.ssh/id_rsa_vallum_common ubuntu@${1}
 }
 
 function sftp_ubuntu {
     if [ "$1" == "" ]
     then
         echo "Must pass the hostname."
-        return
+    else
+        sftp -i ~/.ssh/id_rsa_vallum_common ubuntu@${1}
     fi
-    sftp -i ~/.ssh/id_rsa_vallum_common ubuntu@${1}
 }
 
 function parse_git_branch {
@@ -29,17 +29,13 @@ function get_compiler {
     strings -a "$1" | grep "GCC"
 }
 
-mcd () {
- if [ “$1” == “” ]
- then
-   echo “Refusing to make directory with blank name”
-   return
- fi
- mkdir -p "$1" && cd "$1"
-}
-
-exists() {
-  [[ -f $1 ]]
+function mcd {
+    if [ “$1” == “” ]
+    then
+        echo “Refusing to make directory with blank name”
+    else
+        mkdir -p "$1" && cd "$1"
+    fi
 }
 
 # see http://superuser.com/a/763781
