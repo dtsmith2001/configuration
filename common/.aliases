@@ -11,8 +11,7 @@ if [ -x /usr/bin/dircolors ]; then
 fi
 
 # aliases
-alias ls='ls -G --color=auto'
-alias grep='grep --color=auto'
+alias ls='ls -G'
 alias mkdir='mkdir -pv'
 alias ll='ls -alF'
 alias la='ls -A'
