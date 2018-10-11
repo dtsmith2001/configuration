@@ -12,7 +12,6 @@ fi
 
 # aliases
 alias ls='ls -G'
-alias grep='grep --color=auto'
 alias mkdir='mkdir -pv'
 alias ll='ls -alF'
 alias la='ls -A'
