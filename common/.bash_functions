@@ -7,6 +7,16 @@ function connect_ubuntu {
   fi
 }
 
+function vbox {
+    if [ -x /usr/bin/VBoxManage ]
+    then
+        vbox_ip=$(VBoxManage guestproperty enumerate "Vallum Software Ubuntu 16.04" \
+            | grep IP | cut -f3 -d':' | cut -f1 -d',' | tr -d ' ')
+        echo "ssh into ${vbox_ip}"
+        ssh -p 3022 osboxes.org@${vbox_ip}
+    fi
+}
+
 function sftp_ubuntu {
     if [ "$1" == "" ]
     then

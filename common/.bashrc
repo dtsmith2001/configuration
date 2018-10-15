@@ -37,3 +37,4 @@ then
 fi
 
 export PATH=/Users/driver.dan12/anaconda3/bin:${PATH}
+export PATH=/opt/arduino-1.8.7:${PATH}
