@@ -30,6 +30,22 @@ function parse_git_branch {
      git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
 }
 
+function get_gcc_macros {
+    gcc -dM -E -x c /dev/null
+}
+
+function get_g++_macros {
+    g++ -dM -E -x c++ /dev/null
+}
+
+function get_clang_macros {
+    clang -dM -E -x c /dev/null
+}
+
+function get_clang++_macros {
+    clang++ -dM -E -x c++ /dev/null
+}
+
 function get_compiler {
     if [ "$1" == "" ]
     then
