@@ -1,0 +1,2 @@
+# 25,200 seconds is 7 hours
+00 21 * * * root /usr/sbin/rtcwake -m off -s 25200
