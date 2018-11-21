@@ -7,13 +7,12 @@ function connect_ubuntu {
   fi
 }
 
-function vbox {
-    if [ -x /usr/bin/VBoxManage ]
+function connect_vagrant {
+    if [ "$1" == "" ]
     then
-        vbox_ip=$(VBoxManage guestproperty enumerate "Vallum Software Ubuntu 16.04" \
-            | grep IP | cut -f3 -d':' | cut -f1 -d',' | tr -d ' ')
-        echo "ssh into ${vbox_ip}"
-        ssh -p 3022 osboxes.org@${vbox_ip}
+        echo "Must pass the hostname."
+    else
+        ssh -i ~/.ssh/id_rsa_vallum_common vagrant@${1}
     fi
 }
 
@@ -23,6 +22,15 @@ function sftp_ubuntu {
         echo "Must pass the hostname."
     else
         sftp -i ~/.ssh/id_rsa_vallum_common ubuntu@${1}
+    fi
+}
+
+function sftp_vagrant {
+    if [ "$1" == "" ]
+    then
+        echo "Must pass the hostname."
+    else
+        sftp -i ~/.ssh/id_rsa_vallum_common vagrant@${1}
     fi
 }
 
