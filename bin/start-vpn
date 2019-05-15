@@ -5,7 +5,8 @@ if [ -f autovpn.log ]
 then
   rm -f autovpn.log
 fi
-./autovpn -C -r us-east-1 -k id_rsa_github -i t2.micro 2>&1 | tee autovpn.log
+./autovpn -C -r us-east-1 -k ~/.ssh/us-east-1_vpnkey.pem -i t2.micro 2>&1 | tee autovpn.log
+echo $?
 if [ $? -ne 0 ]
 then
   echo -n "VPN not started, shutting down any instances that may be started..."
