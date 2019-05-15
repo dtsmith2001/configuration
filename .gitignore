@@ -1,3 +1,4 @@
 common/.additional_startup
 linux/aws_config
 linux/aws_credentials
+common/.ssh

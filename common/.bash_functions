@@ -1,9 +1,22 @@
+function connect_dtsmith {
+	if [ "$1" == "" ]
+	then
+		echo "Must pass the hostname."
+	else
+		ssh dtsmith@${1}
+	fi
+}
+
+function connect_camera {
+	ssh root@10.107.20.23
+}
+
 function connect_ubuntu {
   if [ "$1" == "" ]
   then
     echo "Must pass the hostname."
   else
-    ssh -i ~/.ssh/id_rsa_vallum_common ubuntu@${1}
+    ssh ubuntu@${1}
   fi
 }
 
@@ -12,7 +25,7 @@ function connect_vagrant {
     then
         echo "Must pass the hostname."
     else
-        ssh -i ~/.ssh/id_rsa_vallum_common vagrant@${1}
+        ssh vagrant@${1}
     fi
 }
 
@@ -21,7 +34,7 @@ function sftp_ubuntu {
     then
         echo "Must pass the hostname."
     else
-        sftp -i ~/.ssh/id_rsa_vallum_common ubuntu@${1}
+        sftp ubuntu@${1}
     fi
 }
 
@@ -30,7 +43,7 @@ function sftp_vagrant {
     then
         echo "Must pass the hostname."
     else
-        sftp -i ~/.ssh/id_rsa_vallum_common vagrant@${1}
+        sftp vagrant@${1}
     fi
 }
 
@@ -52,6 +65,14 @@ function get_clang_macros {
 
 function get_clang++_macros {
     clang++ -dM -E -x c++ /dev/null
+}
+
+function find_old_files {
+	find ~/.cache/ -depth -type f -atime +365
+}
+
+function delete_old_files {
+	find ~/.cache/ -type f -atime +365 -delete
 }
 
 function get_compiler {

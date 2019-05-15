@@ -36,5 +36,4 @@ then
     source ${HOME}/.additional_startup
 fi
 
-export PATH=/Users/driver.dan12/anaconda3/bin:${PATH}
 export PATH=/opt/arduino-1.8.7:${PATH}
